@@ -1,6 +1,7 @@
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -26,9 +27,17 @@ public class BaseTest {
 	{
 		driver.findElement(By.id("user")).sendKeys("prashannarg@gmail.com");
 		driver.findElement(By.cssSelector("input[id=login]")).click();
-		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(5));
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@name='password']")));
-		driver.findElement(By.cssSelector("input[id=password]")).sendKeys("Dhivyan@179");
+		/*WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(5));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@name='password']")));*/
+		
+		try
+		{
+			driver.findElement(By.cssSelector("input[id=password]")).sendKeys("Dhivyan@179");
+		}
+		catch(StaleElementReferenceException e)
+		{
+			driver.findElement(By.cssSelector("input[id=password]")).sendKeys("Dhivyan@179");
+		}
 		driver.findElement(By.cssSelector("button[id=login-submit]")).click();
 	}
 	

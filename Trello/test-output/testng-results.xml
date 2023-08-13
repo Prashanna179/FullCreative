@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-08-13T22:51:00 IST" name="Default suite" finished-at="2023-08-13T22:51:21 IST" duration-ms="21172">
+  <suite started-at="2023-08-14T01:22:02 IST" name="Suite" finished-at="2023-08-14T01:22:24 IST" duration-ms="22032">
     <groups>
     </groups>
-    <test started-at="2023-08-13T22:51:00 IST" name="Default test" finished-at="2023-08-13T22:51:21 IST" duration-ms="21172">
+    <test started-at="2023-08-14T01:22:02 IST" name="Test" finished-at="2023-08-14T01:22:24 IST" duration-ms="22032">
       <class name="Demo">
-        <test-method is-config="true" signature="launchApplication()[pri:0, instance:Demo@23c30a20]" started-at="2023-08-13T22:51:00 IST" name="launchApplication" finished-at="2023-08-13T22:51:04 IST" duration-ms="4211" status="PASS">
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:Demo@290222c1]" started-at="2023-08-14T01:22:02 IST" name="launchApplication" finished-at="2023-08-14T01:22:06 IST" duration-ms="4457" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchApplication -->
-        <test-method signature="verifyDragandDrop()[pri:0, instance:Demo@23c30a20]" started-at="2023-08-13T22:51:04 IST" name="verifyDragandDrop" finished-at="2023-08-13T22:51:21 IST" duration-ms="16747" status="PASS">
+        <test-method signature="verifyDragandDrop()[pri:0, instance:Demo@290222c1]" started-at="2023-08-14T01:22:06 IST" name="verifyDragandDrop" finished-at="2023-08-14T01:22:24 IST" duration-ms="17185" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyDragandDrop -->
-        <test-method is-config="true" signature="closeApplicaton()[pri:0, instance:Demo@23c30a20]" started-at="2023-08-13T22:51:21 IST" name="closeApplicaton" finished-at="2023-08-13T22:51:21 IST" duration-ms="166" status="PASS">
+        <test-method is-config="true" signature="closeApplicaton()[pri:0, instance:Demo@290222c1]" started-at="2023-08-14T01:22:24 IST" name="closeApplicaton" finished-at="2023-08-14T01:22:24 IST" duration-ms="324" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeApplicaton -->
       </class> <!-- Demo -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
 </testng-results>
