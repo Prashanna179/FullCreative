@@ -1,0 +1,37 @@
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+
+public class BaseTest {
+
+	WebDriver driver;
+	@BeforeMethod
+	public void launchApplication() throws InterruptedException
+	{
+		driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		
+		driver.get("https://trello.com/login");
+		driver.manage().window().maximize();
+		
+	}
+	
+	public void loginApplication() throws InterruptedException
+	{
+		driver.findElement(By.id("user")).sendKeys("prashannarg@gmail.com");
+		driver.findElement(By.cssSelector("input[id=login]")).click();
+		Thread.sleep(5000);
+		driver.findElement(By.cssSelector("input[id=password]")).sendKeys("Dhivyan@179");
+		driver.findElement(By.cssSelector("button[id=login-submit]")).click();
+	}
+	
+	@AfterMethod()
+	public void closeApplicaton()
+	{
+		driver.close();
+	}
+}

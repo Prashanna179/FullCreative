@@ -1,0 +1,58 @@
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.Test;
+
+public class Demo {
+
+	@Test
+	public void verifyDragandDrop() throws InterruptedException
+	{
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		
+		
+		driver.get("https://trello.com/login");
+		driver.findElement(By.id("user")).sendKeys("prashannarg@gmail.com");
+		driver.findElement(By.cssSelector("input[id=login]")).click();
+		Thread.sleep(5000);
+		driver.findElement(By.cssSelector("input[id=password]")).sendKeys("Dhivyan@179");
+		driver.findElement(By.cssSelector("button[id=login-submit]")).click();
+		
+		driver.findElement(By.xpath("//span[text()='Create new board']")).click();
+		driver.findElement(By.xpath("//*[text()='Board title']/..//input")).sendKeys("Full Creative");
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//button[text()='Create']")).click();
+		
+		driver.findElement(By.xpath("//span[text()='Add another list']")).click();
+		driver.findElement(By.xpath("//input[@class='list-name-input']")).sendKeys("List A");
+		driver.findElement(By.xpath("//input[@value='Add list']")).click();
+		
+		driver.findElement(By.xpath("//input[@class='list-name-input']")).sendKeys("List A");
+		driver.findElement(By.xpath("//input[@value='Add list']")).click();
+		
+		driver.findElement(By.xpath("//a[contains(@class,'js-cancel-edit')]")).click();
+		
+		
+		driver.findElement(By.xpath("//*[text()='List A']/../..//span[text()='Add a card']")).click();
+		
+		driver.findElement(By.xpath("//*[text()='List A']/../..//textarea[contains(@class,'js-card-title')]")).sendKeys("Test1");
+		
+		Actions a = new Actions(driver);
+		WebElement src = driver.findElement(By.xpath("//*[text()='List A']/../..//a[contains(@class,'list-card')]"));
+		WebElement des = driver.findElement(By.xpath("//*[text()='List B']/../..//*[contains(@class,'list-cards')]"));
+		a.dragAndDrop(src, des);
+		
+		int x = driver.findElement(By.xpath("//*[text()='List B']/../..//a[contains(@class,'list-card')]")).getRect().x;
+		int y = driver.findElement(By.xpath("//*[text()='List B']/../..//a[contains(@class,'list-card')]")).getRect().y;
+		
+		System.out.println(x + " " + y);
+				
+			
+	}
+}
